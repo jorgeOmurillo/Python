@@ -1,0 +1,10 @@
+test = ""
+myText = "methinks it is like the weasel"
+
+found = False
+
+count = 0
+
+while count < len(myText):
+    print myText[count]
+    count += 1
