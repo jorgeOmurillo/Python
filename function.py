@@ -42,15 +42,10 @@ def findText():
 def foundText():
     newString = generate_string(28)
     newList = ""
-    found = False
     count = 0
 
-    while found == False and count != 28:
-        if newList == newString:
-            found = True
-            continue
+    while count != 28:
         if (newString[count] != text[count]):
-            print count
             newString = generate_string(28)
         if (newString[count] == text[count]):
             newList = newList + newString[count]
