@@ -2,6 +2,12 @@ from __future__ import division
 
 class Fraction:
     
+    def getNum(self):
+        return self.num
+
+    def getDen(self):
+        return self.den
+
     def __init__(self, top, bottom):
         self.num = top
         self.den = bottom
@@ -18,7 +24,8 @@ class Fraction:
     
     def __eq__(self, other):
         firstnum = self.num * other.den
-        secondnum = self.num * self.den
+        secondnum = other.num * self.den
+        common = gcd(firstnum, secondnum)
 
         return firstnum == secondnum
 
@@ -42,7 +49,19 @@ class Fraction:
         common = gcd(newnum, newden)
 
         return Fraction(newnum//common, newden//common)
-        
+
+    def __lt__(self, other):
+        firstNum = self.num * other.den
+        secondNum = self.den * other.num
+
+        return firstNum < secondNum
+
+    def __gt__(self, other):
+        firstNum = self.num * other.den
+        secondNum = self.den * other.num
+
+        return firstNum > secondNum
+ 
 def gcd(m, n):
     while m%n != 0:
         oldm = m
@@ -53,17 +72,21 @@ def gcd(m, n):
 
     return n
 
-#myFraction = Fraction(3, 5)
+f = Fraction(1, 3)
+g = Fraction(2, 6)
 
-#print "I ate", myFraction, "of the pizza"
-#print myFraction.__str__()
+k = f+g
 
-f1 = Fraction(1, 3)
-f2 = Fraction(4,7)
-f3 = f1+f2
+print "Addition: ", k
 
-print f3
+print "Substraction: ", f-g
 
-f4 = f1-f2
+print "Division: ", f/g
 
-print f4
+print "Multiplication: ", f*g
+
+print "Less than: ", f<g 
+
+print "Greater than: ", f>g
+
+print "Equal: ", f==g
