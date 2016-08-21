@@ -73,7 +73,7 @@ def gcd(m, n):
     return n
 
 f = Fraction(1, 3)
-g = Fraction(2, 6)
+g = Fraction(1, 6)
 
 k = f+g
 
