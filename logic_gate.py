@@ -92,12 +92,11 @@ class NotGate(UnaryGate):
     def __init__(self, n):
         UnaryGate.__init__(self, n)
 
-    n = self.getPin()
-
-    if n == 1:
-        return 0
-    else:
-        return 1
+    def performGateLogic(self):
+        if self.getPin():
+            return 0
+        else:
+            return 1
 
 class Connector:
 
@@ -113,10 +112,28 @@ class Connector:
     def getTo(self):
         return self.togate
 
-class NandGate(AndGate):
+""" class NandGate(AndGate):
+
     def performGateLogic(self):
-        super()
+        if super(NandGate, self).performGateLogic() == 1:
+            return 0
+        else:
+            return 1
 
-g1 = AndGate("G1")
+class NorGate(OrGate):
 
-g1.getOutput()
+    def performGateLogic(self):
+        if super(NorGate, self).performGateLogic() == 1:
+            return 0
+        else:
+            return 1"""
+
+
+def main():
+
+    g1 = AndGate("G1")
+
+
+    print g1.getOutput()
+
+main()

@@ -2,12 +2,6 @@ from __future__ import division
 
 class Fraction:
     
-    def getNum(self):
-        return self.num
-
-    def getDen(self):
-        return self.den
-
     def __init__(self, top, bottom):
         self.num = top
         self.den = bottom
@@ -61,6 +55,13 @@ class Fraction:
         secondNum = self.den * other.num
 
         return firstNum > secondNum
+
+    def getNum(self):
+        return self.num
+
+    def getDen(self):
+        return self.den    
+
  
 def gcd(m, n):
     while m%n != 0:
