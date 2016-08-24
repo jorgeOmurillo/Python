@@ -23,11 +23,7 @@ class Fraction:
             return self.__add__(secFrac)
 
     def __iadd__(self, secFrac):
-        num1 = self.n * secFrac.d
-        num2 = self.d * secFrac.n
-        num1 += num2
-
-        return num1
+        return self.__add__(secFrac)
 
     def __sub__(self, secFrac):
         newNum = self.n * secFrac.d - self.d * secFrac.n
