@@ -1,4 +1,6 @@
-from random import randrange
+""" Blackjack Game"""
+
+import random
 
 class Card:
 
@@ -8,16 +10,34 @@ class Card:
     def __str__(self):
         return '{}'.format(self.res)
 
-def generateCard():
+    def draw(self):
 
-    numberSel = number[randrange(0, len(number))]
-    signSel = sign[randrange(0, len(sign))]
+        self.pickMe = drawCard(1, self.res)
+        self.pickMe = self.pickMe[0][0]
 
-    #result =  number[randrange(0, len(number))] + " of " + sign[randrange(0, len(sign))]
+        if self.pickMe == 'A':
+            self.pickMe = 1
+        elif self.pickMe == 'T':
+            self.pickMe = 10
+        elif self.pickMe == 'J':
+            self.pickMe = 11
+        elif self.pickMe == 'Q':
+            self.pickMe == 12
+        elif self.pickMe == 'K':
+            self.pickMe = 13
+        else:
+            self.pickMe = int(self.pickMe)
 
-    result = [numberSel[0], signSel[0]]
+        print self.pickMe
 
-    return result
+        return self.pickMe
+
+
+def drawCard(n, deck):
+    random.shuffle(deck)
+
+    return [deck.pop() for k in range(n)]
+
 
 def generateDeck():
 
@@ -29,6 +49,19 @@ def generateDeck():
 
     return deck
 
-c1 = Card()
 
-print c1
+def main():
+
+    cardDeck = Card()
+    count = 0
+
+    while count <= 21:
+        response = raw_input("Press a key to draw a card.\n")
+        
+        count += cardDeck.draw()
+
+        print count
+
+
+if __name__ == "__main__":
+    main()
