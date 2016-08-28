@@ -13,24 +13,22 @@ class Card:
     def draw(self):
 
         self.pickMe = drawCard(1, self.res)
-        self.pickMe = self.pickMe[0][0]
+        self.selected = self.pickMe[0][0]
 
-        if self.pickMe == 'A':
-            self.pickMe = 1
-        elif self.pickMe == 'T':
-            self.pickMe = 10
-        elif self.pickMe == 'J':
-            self.pickMe = 11
-        elif self.pickMe == 'Q':
-            self.pickMe == 12
-        elif self.pickMe == 'K':
-            self.pickMe = 13
+        if self.selected == 'A':
+            self.selected = 1
+        elif self.selected == 'T':
+            self.selected = 10
+        elif self.selected == 'J':
+            self.selected = 11
+        elif self.selected == 'Q':
+            self.selected = 12
+        elif self.selected == 'K':
+            self.selected = 13
         else:
-            self.pickMe = int(self.pickMe)
+            self.selected = int(self.selected)
 
-        print self.pickMe
-
-        return self.pickMe
+        return int(self.selected)
 
 
 def drawCard(n, deck):
@@ -57,11 +55,17 @@ def main():
 
     while count <= 21:
         response = raw_input("Press a key to draw a card.\n")
-        
+    
         count += cardDeck.draw()
 
         print count
 
-
+        if count == 21:
+            print "You won! 21 Blackjack."
+            break
+        if count > 21:
+            print "You lost :( !"
+            break
+        
 if __name__ == "__main__":
     main()
