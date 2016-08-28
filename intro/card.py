@@ -10,9 +10,9 @@ class Card:
     def __str__(self):
         return '{}'.format(self.res)
 
-    def draw(self):
+    def drawOne(self):
 
-        self.pickMe = drawCard(1, self.res)
+        self.pickMe = drawCard(self.res)
         self.selected = self.pickMe[0][0]
 
         if self.selected == 'A':
@@ -31,10 +31,10 @@ class Card:
         return int(self.selected)
 
 
-def drawCard(n, deck):
+def drawCard(deck):
     random.shuffle(deck)
 
-    return [deck.pop() for k in range(n)]
+    return [deck.pop() for k in range(1)]
 
 
 def generateDeck():
@@ -55,16 +55,17 @@ def main():
 
     while count <= 21:
         response = raw_input("Press a key to draw a card.\n")
-    
-        count += cardDeck.draw()
+        temp = cardDeck.drawOne()
 
-        print count
+        count += temp
+
+        print "You drew " + str(temp) + ". You have a total of: " + str(count) + ".\n" 
 
         if count == 21:
-            print "You won! 21 Blackjack."
+            print "You won! 21 Blackjack. Your total count is: " + str(count)
             break
         if count > 21:
-            print "You lost :( !"
+            print "You lost!"
             break
         
 if __name__ == "__main__":
