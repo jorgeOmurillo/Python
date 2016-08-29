@@ -13,22 +13,8 @@ class Card:
     def drawOne(self):
 
         self.pickMe = drawCard(self.res)
-        self.selected = self.pickMe[0][0]
 
-        if self.selected == 'A':
-            self.selected = 1
-        elif self.selected == 'T':
-            self.selected = 10
-        elif self.selected == 'J':
-            self.selected = 11
-        elif self.selected == 'Q':
-            self.selected = 12
-        elif self.selected == 'K':
-            self.selected = 13
-        else:
-            self.selected = int(self.selected)
-
-        return int(self.selected)
+        return self.pickMe
 
 
 def drawCard(deck):
@@ -57,9 +43,23 @@ def main():
         response = raw_input("Press a key to draw a card.\n")
         temp = cardDeck.drawOne()
 
-        count += temp
+        if temp[0][0] == 'A':
+            other = 1
+        elif temp[0][0] == 'T':
+            other = 10
+        elif temp[0][0] == 'J':
+            other = 11
+        elif temp[0][0] == 'Q':
+            other = 12
+        elif temp[0][0] == 'K':
+            other = 13
+        else:
+            other = int(temp[0][0])
 
-        print "You drew " + str(temp) + ". You have a total of: " + str(count) + ".\n" 
+
+        count += other
+
+        print "You drew a " + temp[0][0] + " of " + temp[0][1] + ". You have a total of: " + str(count) + ".\n" 
 
         if count == 21:
             print "You won! 21 Blackjack. Your total count is: " + str(count)
