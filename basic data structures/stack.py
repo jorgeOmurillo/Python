@@ -38,6 +38,6 @@ def reverseString(text):
 
     return revStr
 
-hello = reverseString('Jorge')
+hello = reverseString('Ana')
 
 print hello
