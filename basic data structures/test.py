@@ -6,6 +6,13 @@ s.push('x')
 s.push('y')
 s.push('z')
 
-while not s.isEmpty():
-    s.pop()
-    s.pop()
+hola = s.pop()
+
+print hola
+print s.peek()
+
+nombre = "j o a s"
+
+nuevo = nombre.split()
+
+print nuevo

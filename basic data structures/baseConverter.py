@@ -21,4 +21,4 @@ def baseConverter(decNumber, base):
     return newString
 
 print baseConverter(25, 8)
-print baseConverter(26, 26)
+print baseConverter(26, 18)
