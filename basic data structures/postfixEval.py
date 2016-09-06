@@ -20,7 +20,7 @@ def doMath(one, two, three):
 
     if one == "*":
         return two * three
-    
+ 
     elif one == "/":
         return two / three
 
@@ -31,3 +31,4 @@ def doMath(one, two, three):
         return two - three
 
 print postfixEval("6 8 + 7 6 +")
+print postfixEval("5 * 3 * (4 - 2)")

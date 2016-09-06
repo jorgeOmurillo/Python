@@ -2,6 +2,7 @@ from pythonds.basic.stack import Stack
 
 def infixToPostfix(infixexpr):
     prec = {}
+    prec["^"] = 4
     prec["*"] = 3
     prec["/"] = 3
     prec["+"] = 2
@@ -24,7 +25,7 @@ def infixToPostfix(infixexpr):
             while topToken != '(':
                 postFixList.append(topToken)
                 topToken = opStack.pop()
-        
+ 
         else:
             while (not opStack.isEmpty()) and (prec[opStack.peek()] >= prec[token]):
                 postFixList.append(opStack.pop())
@@ -36,3 +37,4 @@ def infixToPostfix(infixexpr):
     return " ".join(postFixList)
 
 print infixToPostfix("( A + B ) + ( C * D )")
+print infixToPostfix("5 * 3 ^ ( 4 - 2 )")
