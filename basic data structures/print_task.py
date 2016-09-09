@@ -11,7 +11,7 @@ class Printer:
 
     def tick(self):
         if self.currentTask != None:
-            self.timeRemaining = self.timeRemaining - 1
+            self.timeRemaining -= 1
 
             if self.timeRemaining <= 0:
                 self.currentTask = None
