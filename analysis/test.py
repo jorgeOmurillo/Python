@@ -11,8 +11,5 @@ hola = s.pop()
 print hola
 print s.peek()
 
-nombre = "j o a s"
-
-nuevo = nombre.split()
-
-print nuevo
+for i in range(10, 200, 30):
+    print i
