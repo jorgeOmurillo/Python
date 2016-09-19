@@ -40,7 +40,7 @@ class unorderedList:
 
         return count
 
-    def search(self, item):
+    def searchNode(self, item):
         current = self.head
         found = False
 
@@ -52,15 +52,42 @@ class unorderedList:
 
         return found
 
+    def removeNode(self, item):
+        current = self.head
+        found = False
+        previous = None
+
+        while not found:
+            if current.getData() == item:
+                found = True
+            else:
+                previous = current
+                current = current.getNext()
+
+        if previous == None:
+            self.head = current.getNext()
+        else:
+            previous.setNext(current.getNext())
+
+    def printList(self):
+        found = False
+        current = self.head
+
+        while current != None and not found:
+            print current.getData()
+            current = current.getNext()
+
 
 def populateList(nums):
     hello = unorderedList()    
-    x = 0
+    x = 1
 
     while x < nums: 
         hello.add(x)
         x += 1
 
-    return hello.search(99)
+    hello.removeNode(11)
 
-print populateList(11)
+    hello.printList()
+
+populateList(11)
