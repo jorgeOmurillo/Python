@@ -1,3 +1,5 @@
+import random
+
 class Node:
 
     def __init__(self, initData):
@@ -70,24 +72,57 @@ class unorderedList:
             previous.setNext(current.getNext())
 
     def printList(self):
-        found = False
         current = self.head
 
-        while current != None and not found:
+        while current != None:
             print current.getData()
             current = current.getNext()
+
+    def appendNode(self, item):
+        current = self.head
+        previous = None
+        newNode = Node(item)
+
+        while current != None:
+            previous = current
+            current = current.getNext()
+
+        previous.setNext(newNode)
+
+    def insertNode(self, pos, item):
+        current = self.head
+        previous = None
+        position = 0
+        newNode = Node(item)
+        found = False
+
+        while not found:
+            if position == pos:
+                found = True
+            else:
+                previous = current
+                current = current.getNext()
+                position += 1
+        
+        if previous == None:
+            newNode.setNext(self.head)            
+            self.head = newNode
+        else:
+            newNode.setNext(previous.getNext())
+            previous.setNext(newNode)
 
 
 def populateList(nums):
     hello = unorderedList()    
     x = 1
 
-    while x < nums: 
-        hello.add(x)
+    while x <= nums: 
+        hello.add(random.randrange(100, 200))
+        #hello.add(x)
         x += 1
 
-    hello.removeNode(11)
+    hello.insertNode(9, "lo logre!")
 
     hello.printList()
 
-populateList(11)
+populateList(10)
