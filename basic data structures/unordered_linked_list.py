@@ -111,17 +111,42 @@ class unorderedList:
             newNode.setNext(previous.getNext())
             previous.setNext(newNode)
 
+    def popNode(self, index):
+        current = self.head
+        position = 0
+        found = False
+        previous = None
+
+        if index == None:
+            index = self.size-1
+
+        while not found:
+            if position == index:
+                found = True
+            else:
+                position += 1
+                previous = current
+                current = current.getNext()
+
+        if previous == None:
+            self.head = current.getNext()
+            print "popped ", current.getData()
+        else:
+            previous.setNext(current.getNext())
+            print "popped ", current.getData()
+
 
 def populateList(nums):
     hello = unorderedList()    
     x = 1
 
     while x <= nums: 
-        hello.add(random.randrange(100, 200))
-        #hello.add(x)
+        #hello.add(random.randrange(100, 200))
+        hello.add(x)
         x += 1
 
-    hello.insertNode(9, "lo logre!")
+    #hello.insertNode(9, "lo logre!")
+    hello.popNode(6)
 
     hello.printList()
 
