@@ -11,18 +11,17 @@ def infixToPrefix(infixexpr):
     prec["("] = 1
 
     opStack = Stack()
-    operandStack = Stack()
-    postFixList = ""
-    tokenList = infixexpr.split()
+    preFixList = []
+    tokenList = reverseText(infixexpr)
 
     for token in tokenList:
         if token in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" or token in "0123456789":
-            operandStack.push(token)
-        
-        elif token == '(':
-            opStack.push(token)
+            preFixList.append(token)
         
         elif token == ')':
+            opStack.push(token)
+        
+        elif token == '(':
             topToken = opStack.pop()
 
             while topToken != '(':
@@ -48,6 +47,18 @@ def infixToPrefix(infixexpr):
     print postFixList
 
 
+def reverseText(text):
+    newText = Stack()
+    for x in text:
+        newText.push(x)
+
+    result = ""
+
+    for x in text:
+        result += newText.pop()
+
+    return result
+
 
 infixToPrefix("( A + B ) * ( C + D )")
 infixToPrefix("( A + B ) + ( C * D )")
@@ -58,4 +69,3 @@ infixToPrefix("5 * 3 ^ ( 4 - 2 )")
 infixToPrefix("( A + B ) * ( C + D ) * ( E + F )")
 #infixToPrefix("A + ( ( B + C ) * ( D + E ) )")
 infixToPrefix("A * B * C * D + E + F")
-
