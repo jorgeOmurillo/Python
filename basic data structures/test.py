@@ -1,14 +1,6 @@
-class Value:
-    def __init__(self, data):
-        self.data = data
+from pythonds.basic.stack import Stack
 
-    def hello(self):
-        hello = self.data
+x = "^"
 
-newOne = Value(3)
-
-newThree = newOne
-
-newThree.hello = 5
-
-print newOne.hello
+if x in "&*&^#":
+    print x
