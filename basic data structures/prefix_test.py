@@ -1,19 +1,18 @@
 from pythonds.basic.stack import Stack
 
 def infixToPrefix(infixexpr):
-
     prec = {}
     prec["^"] = 4
     prec["*"] = 3
     prec["/"] = 3
     prec["+"] = 2
     prec["-"] = 2
-    prec["("] = 1
+    prec[")"] = 1
 
     opStack = Stack()
     preFixList = []
-    tokenList = reverseText(infixexpr)
-
+    tokenList = reverseText(infixexpr.split())
+    
     for token in tokenList:
         if token in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" or token in "0123456789":
             preFixList.append(token)
@@ -23,49 +22,34 @@ def infixToPrefix(infixexpr):
         
         elif token == '(':
             topToken = opStack.pop()
-
-            while topToken != '(':
-                right = operandStack.pop()
-                left = operandStack.pop()
-                postFixList = postFixList + topToken + left + right
+            while topToken != ')':
+                preFixList.append(topToken)
                 topToken = opStack.pop()
  
         else:
             while (not opStack.isEmpty()) and (prec[opStack.peek()] >= prec[token]):
-                #operandStack.push(opStack.pop())
-                postFixList = opStack.pop() + postFixList
+                preFixList.append(opStack.pop())
             opStack.push(token)
 
     while not opStack.isEmpty():
-        while not operandStack.isEmpty():
-            right = operandStack.pop()
-            left = operandStack.pop()
-            postFixList = opStack.pop() + left + right + postFixList
+        preFixList.append(opStack.pop())
 
-        postFixList = opStack.pop() + postFixList
-
-    print postFixList
-
+    return " ".join(reverseText(preFixList))
+ 
 
 def reverseText(text):
-    newText = Stack()
-    for x in text:
-        newText.push(x)
-
-    result = ""
+    newText = ""
+    newStack = Stack()
 
     for x in text:
-        result += newText.pop()
+        newStack.push(x)
 
-    return result
+    for x in text:
+        newText += newStack.pop()
 
+    return newText
 
-infixToPrefix("( A + B ) * ( C + D )")
-infixToPrefix("( A + B ) + ( C * D )")
-infixToPrefix("5 * 3 ^ ( 4 - 2 )")
-#infixToPrefix("8 / 9 ^ 7 * ( 9 - 1 )")
-#infixToPrefix("A + ( ( B + C ) * ( D + E ) )")
-
-infixToPrefix("( A + B ) * ( C + D ) * ( E + F )")
-#infixToPrefix("A + ( ( B + C ) * ( D + E ) )")
-infixToPrefix("A * B * C * D + E + F")
+print infixToPrefix("( A + B ) * ( C + D )")
+print infixToPrefix("( A + B ) * ( C + D ) * ( E + F )")
+print infixToPrefix("A + ( ( B + C ) * ( D + E ) )")
+print infixToPrefix("A * B * C * D + E + F")
