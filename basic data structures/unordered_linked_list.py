@@ -59,6 +59,9 @@ class unorderedList:
         found = False
         previous = None
 
+        if self.isEmpty:
+            raise Exception("There are no nodes to remove!")
+
         while not found:
             if current.getData() == item:
                 found = True
@@ -117,6 +120,9 @@ class unorderedList:
         found = False
         previous = None
 
+        if self.isEmpty:
+            raise Exception("There are no nodes to remove!")        
+
         if index == None:
             index = self.size-1
 
@@ -146,8 +152,10 @@ def populateList(nums):
         x += 1
 
     #hello.insertNode(9, "lo logre!")
-    hello.popNode(6)
+    hello.popNode(1)
+    hello.popNode(2)
+
 
     hello.printList()
 
-populateList(10)
+populateList(1)
