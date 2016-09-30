@@ -4,11 +4,17 @@ def htmlVal(htmlText):
 
     signStack = Stack()
     newText = list(htmlText)
+    resultText = []
 
     for token in newText:
 
         if token == '<':
+            resultText.append(token)
             signStack.push(token)
 
         elif token == '>':
-            signStack.pop()
+            
+            temp = signStack.pop()
+
+            while temp != '<':
+                
