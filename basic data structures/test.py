@@ -1,8 +1,15 @@
 from pythonds.basic.stack import Stack
 
-def testText(text):
-    for x in text:
-        if x in "a":
-            print "SI"
+def testStack():
 
-testText("hola")
+    textStack = Stack()
+
+    thisWord = "hola"
+
+    for x in thisWord:
+        textStack.push(x)
+
+    print textStack.peek()
+
+
+testStack()
