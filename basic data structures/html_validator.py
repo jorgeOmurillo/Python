@@ -44,13 +44,17 @@ def htmlVal(htmlText):
                     word1 = temp + word1
                     temp = carStack.pop()
 
-                if word1 == word2:
-                    print "Tags are complete: ", word1, word2
+                if word1 != word2:
+                    print "This tag is incomplete: ", word1
+
+                    for x in word2:
+                        carStack.push(x)
+
                 else:
-                    print "Tags are incomplete: ", word1, word2
+                    print "Tags are complete: ", word1
 
             end = False
 
     return resultText
 
-print htmlVal("<html><head><title>Example</title></head><body><h1>Hello, world</h1></body></html>")
+print htmlVal("<html><head><title>Example</head><body><h1>Hello, world</h1></body></html>")
