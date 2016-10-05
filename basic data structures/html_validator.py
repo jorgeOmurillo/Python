@@ -34,20 +34,28 @@ def htmlVal(htmlText):
                     word2 = temp + word2
                     temp = carStack.pop()
 
+                """temp = carStack.pop()
                 temp = carStack.pop()
-                temp = carStack.pop()
-                temp = carStack.pop()
+                temp = carStack.pop()"""
 
                 word1 = ""
+                found = False
 
-                while temp != '<':
-                    word1 = temp + word1
-                    temp = carStack.pop()
+                #while temp != '<':
+                while not found:
+                    if temp == '>':
+                        temp = carStack.pop()
+                    while temp != '<':
+                        word1 = temp + word1
+                        temp = carStack.pop()
 
-                if word1 == word2:
-                    print "Tags are complete: ", word1, word2
-                else:
-                    print "Tags are incomplete: ", word1, word2
+                    #temp = carStack.pop()
+
+                    if word1 != word2:
+                        print "This tag is incomplete: ", word1
+                    else:
+                        found = True
+                        #print "Tags are incomplete: ", word1, word2
 
             end = False
 
