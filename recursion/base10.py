@@ -7,4 +7,4 @@ def toSrt(n, base):
     else:
         return toSrt(n//base, base) + convertString[n%base]
 
-print toSrt(1000, 16)
+print toSrt(1453, 16)
