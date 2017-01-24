@@ -1,4 +1,4 @@
-import turtle
+"""import turtle
 
 myTurtle = turtle.Turtle()
 myWin = turtle.Screen()
@@ -17,10 +17,23 @@ def drawSquare(myTurtle, lineLen):
         myTurtle.right(90)
         myTurtle.forward(100)
         myTurtle.right(90)
-        myTurtle.forward(100)        
-        
-
-
-#drawSpiral(myTurtle, 100)
+        myTurtle.forward(100)
+ 
 drawSquare(myTurtle, 100)
+myWin.exitonclick()"""
+
+import turtle
+
+myTurtle = turtle.Turtle()
+myWin = turtle.Screen()
+
+def drawRandom(myTurtle):
+    myTurtle.forward(100)
+    myTurtle.right(200)
+    myTurtle.forward(100)
+    myTurtle.left(300)
+    myTurtle.forward(100)
+
+drawRandom(myTurtle)
 myWin.exitonclick()
+
