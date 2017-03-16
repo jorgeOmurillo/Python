@@ -1,28 +1,10 @@
-from pythonds.basic.stack import Stack
-
-fromP = Stack()
-toP = Stack()
-withP = Stack()
-
-def moveTower(height, fromPole, toPole, withPole):
-
+def moveTower(height,fromPole, toPole, withPole):
     if height >= 1:
-        moveTower(height-1, fromPole, withPole, toPole)
-        fromP.push(fromPole)
-        toP.push(toPole)
-        withP.push(withPole)
+        moveTower(height-1,fromPole,withPole,toPole)
+        moveDisk(fromPole,toPole)
+        moveTower(height-1,withPole,toPole,fromPole)
 
-        moveDisk(fromPole, toPole)
-        toP.push(fromP.pop())
+def moveDisk(fp,tp):
+    print("moving disk from",fp,"to",tp)
 
-        moveTower(height-1, withPole, toPole, fromPole)
-
-def moveDisk(fp, tp):
-    print "moving disk from", fp, "to", tp
-
-def printTower():
-    while not toP.isEmpty():
-        print toP.pop()
-
-moveTower(3, "A", "B", "C")
-printTower()
+moveTower(3,"A","B","C")
