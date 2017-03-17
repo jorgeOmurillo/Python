@@ -1,25 +1,6 @@
-textFile = open("maze2.txt", 'r')
+thisList = [1,2,3,4,5]
 
-def drawMe(textFile):
-    mazeList = []
-    rowsInMaze = 0
-    columnsInMaze = 0
+for i in [c for c in thisList if c <= 5]:
+    print c
 
-    for x in textFile:
-        rows = []
-        columns = 0
-
-        for y in x[:-1]:
-            rows.append(y)
-
-            if y == 'S':
-                startRow = rowsInMaze
-                startCol = columns
-
-            columns += 1
-        
-        rowsInMaze += 1
-        mazeList.append(rows)
-        columnsInMaze = len(rows)
-
-print "me"
+print [0]*64
