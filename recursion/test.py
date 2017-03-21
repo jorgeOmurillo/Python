@@ -1,6 +1,10 @@
-thisList = [1,2,3,4,5]
+def testRecur(suma):
 
-for i in [c for c in thisList if c <= 5]:
-    print c
+    print suma
 
-print [0]*64
+    if suma == 5:
+        return 0
+    
+    return suma + testRecur(suma+1)
+
+print testRecur(1)
