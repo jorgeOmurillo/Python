@@ -1,10 +1,11 @@
-def testRecur(suma):
+textThis = open('sample.txt', 'r')
+f = textThis.read()
 
-    print suma
+bet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+dick = {}
 
-    if suma == 5:
-        return 0
-    
-    return suma + testRecur(suma+1)
+for i in f:
+    if i in bet:
+        dick[i] += 1
 
-print testRecur(1)
+print dick

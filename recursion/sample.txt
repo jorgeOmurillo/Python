@@ -1,0 +1,13 @@
+Notice that in line 6 we have added a test to see if our table contains the minimum number of coins for a certain amount of change. If it does not, we compute the minimum recursively and store the computed minimum in the table. Using this modified algorithm reduces the number of recursive calls we need to make for the four coin, 63 cent problem to 221 calls!
+
+Although the algorithm in AcitveCode 1 is correct, it looks and feels like a bit of a hack. Also, if we look at the knownResults lists we can see that there are some holes in the table. In fact the term for what we have done is not dynamic programming but rather we have improved the performance of our program by using a technique known as Ågmemoization,Åh or more commonly called Ågcaching.Åh
+
+A truly dynamic programming algorithm will take a more systematic approach to the problem. Our dynamic programming solution is going to start with making change for one cent and systematically work its way up to the amount of change we require. This guarantees us that at each step of the algorithm we already know the minimum number of coins needed to make change for any smaller amount.
+
+LetÅfs look at how we would fill in a table of minimum coins to use in making change for 11 cents. Figure 4 illustrates the process. We start with one cent. The only solution possible is one coin (a penny). The next row shows the minimum for one cent and two cents. Again, the only solution is two pennies. The fifth row is where things get interesting. Now we have two options to consider, five pennies or one nickel. How do we decide which is best? We consult the table and see that the number of coins needed to make change for four cents is four, plus one more penny to make five, equals five coins. Or we can look at zero cents plus one more nickel to make five cents equals 1 coin. Since the minimum of one and five is one we store 1 in the table. Fast forward again to the end of the table and consider 11 cents. Figure 5 shows the three options that we have to consider:
+
+A penny plus the minimum number of coins to make change for 11?1=1011?1=10 cents (1)
+A nickel plus the minimum number of coins to make change for 11?5=611?5=6 cents (2)
+A dime plus the minimum number of coins to make change for 11?10=111?10=1 cent (1)
+
+hhh
