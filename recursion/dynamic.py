@@ -16,7 +16,7 @@
 print recMC([1,5,10,25], 63)"""
 
 
-def recDC(coinValueList, change, knownResults):
+"""def recDC(coinValueList, change, knownResults):
     minCoins = change
 
     if change in coinValueList:
@@ -34,4 +34,16 @@ def recDC(coinValueList, change, knownResults):
 
     return minCoins
 
-print recDC([1, 5, 10, 25], 63, [0]*64)
+print recDC([1, 5, 10, 25], 63, [0]*64)"""
+
+def dpMakeChange(coinValueList, change, minCoins, coinsUsed):
+
+    for cents in range(change+1):
+        coinCount = cents
+        
+        for j in [c for c in coinValueList if c <= cents]:
+            coinCount = minCoins[cents-j] + 1
+        
+        minCoins[cents] = coinCount
+
+    return minCoins[change]

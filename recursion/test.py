@@ -1,11 +1,3 @@
-textThis = open('sample.txt', 'r')
-f = textThis.read()
+listMe = [1,2,3,4,5]
 
-bet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-dick = {}
-
-for i in f:
-    if i in bet:
-        dick[i] += 1
-
-print dick
+print listMe[-1:]
