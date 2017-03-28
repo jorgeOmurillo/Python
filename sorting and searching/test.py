@@ -1,19 +1,22 @@
 def binaryMe(listMe, num):
 
-    if len(listMe) == 0:
-        return False
-    else:
+    found = False
+    first = 0
+    last = len(listMe)-1
 
-        mid = len(listMe)//2
+    while first <= last and not found:
+        mid = (first + last) // 2
 
-        if listMe[mid] == num:
-            return True
+        if num == listMe[mid]:
+            found = True
         else:
             if num < listMe[mid]:
-                return binaryMe(listMe[:mid], num)
+                last = mid - 1
             else:
-                return binaryMe(listMe[mid+1:], num)
+                first = mid + 1
+
+    return found
 
 esta = [1, 2, 3, 4, 5, 6]
 
-print binaryMe(esta, 10)
+print binaryMe(esta, 111)
