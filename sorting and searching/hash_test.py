@@ -1,9 +1,9 @@
 def hashThis(lista,num):
 
-    hashed = {}
+    hashed = [None]*num
     res = 0
     
-    for i in lista:
+    for i in range(len(list)):
        res = i%num 
        print res
        hashed[i] = i%num
@@ -12,4 +12,4 @@ def hashThis(lista,num):
 
 listMe = [10,33,4]
 
-hashThis(listMe, 3)
+hashThis(listMe, 5)
