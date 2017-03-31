@@ -1,10 +1,10 @@
-def hashThis(lista,num):
+def hashThis(lista):
 
-    hashed = [None]*num
+    hashed = [None]*len(lista)
     res = 0
  
     for i in lista:
-       res = i%num 
+       res = i%len(lista) 
  
        if hashed[res] is None:
            hashed[res] = i
@@ -37,4 +37,4 @@ def position(lista, num):
 
 listMe = [113 , 117 , 97 , 100 , 114 , 108 , 116 , 105 , 99]
 
-print position(hashThis(listMe, 11), 22)
+print position(hashThis(listMe), 22)
