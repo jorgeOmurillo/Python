@@ -1,6 +1,9 @@
 lista = [1,2,3,4,5]
+num = 10
 
-# for i in range(len(lista), 0, -1):
-    # print i
+for i in range(2,10):
+    print i
+    print "me"
+    num += i
 
-print range(10, 5)
+print num

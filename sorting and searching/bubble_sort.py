@@ -8,7 +8,7 @@ def bubbleSort(listMe):
                 listMe[j] = listMe[j+1]
                 listMe[j+1] = temp
 
-listMe = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+listMe = [54, 54, 54, 17, 77, 31, 44, 55, 20]
 
 bubbleSort(listMe)
 
