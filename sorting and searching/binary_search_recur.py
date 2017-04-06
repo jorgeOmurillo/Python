@@ -10,6 +10,6 @@ def binarySearch(listMe, num):
             if num < listMe[midpoint]:
                 return binarySearch(listMe[:midpoint], num)
             else:
-                return binarySearch(listMe[midpoint:], num)
+                return binarySearch(listMe[midpoint+1:], num)
 
-print binarySearch([1,2,3,4,5,6,7,8,6,10], 6)
+print binarySearch([1,2,3,4,5,6,7,8,6,10], 11)
