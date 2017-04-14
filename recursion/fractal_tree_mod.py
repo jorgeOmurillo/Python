@@ -2,7 +2,9 @@ from random import randint
 import turtle
 
 def tree(branchLen,t,width):
-    if branchLen <= 10:
+    if branchLen > 5:
+        t.color("green")
+    else:
         t.color("brown")
 
     if branchLen > 5:
