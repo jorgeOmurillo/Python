@@ -1,19 +1,17 @@
 def insertSort(lista):
 
-    for index in range(1, len(lista)):
+    for index in range(0, len(lista)):
 
-        currentValue = lista[index]
-        position = index
+            position = index
+            currentValue = lista[index]
 
-        while position > 0 and lista[position - 1] > currentValue:
+            while position > 0 and lista[position - 1] > currentValue:
+                lista[position] = lista[position - 1]
+                position -= 1
 
-            lista[position] = lista[position - 1]
-            position -= 1
+            lista[position] = currentValue
 
-        lista[position] = currentValue
-
-lista = [23, 441, 1, 1231, 5]
-
+lista = [86752, 14, 1234, 1]
 insertSort(lista)
 
 print lista
