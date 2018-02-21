@@ -54,7 +54,12 @@ def binary_search_recur_two(lista, value):
             else:
                 return binary_search_recur_two(lista[mid+1:], value)
 
+<<<<<<< HEAD
 # print(binary_search_recur_two([-1,0,1,2,3,4,5,6,7], -1))
 # print(binary_search_recur_two([1,2,3,4,5,6,7], 1))
 # print(binary_search_recur_two([1,2,3,4,5,6,7], 7))
 # print(binary_search_recur_two([1,2,3,4,5,6,7], 8))
+=======
+lista = [1,2,3,4,5,6,7]
+print binaryMe(lista, 7, 0, len(lista))
+>>>>>>> b2edb34e570bcc63cecabc87d84d6b624edc9900
