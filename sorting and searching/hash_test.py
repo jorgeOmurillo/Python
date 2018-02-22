@@ -2,7 +2,6 @@ def hashed(lista, N):
     arr = [None] * N
 
     for x in range(len(lista)):
-        hashedIt = lista[x] % N
         arr[lista[x]%N] = lista[x]
 
     return arr
