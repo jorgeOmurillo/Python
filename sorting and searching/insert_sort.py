@@ -1,17 +1,15 @@
-def insertSort(lista):
+def insert_sort(A):
+    
+    for x in range(1, len(A)):
+        current = A[x]
+        index = x
 
-    for index in range(0, len(lista)):
+        while index > 0 and A[index-1] > current:
+            A[index] = A[index-1]
+            index -= 1
 
-            position = index
-            currentValue = lista[index]
+        A[index] = current
 
-            while position > 0 and lista[position - 1] > currentValue:
-                lista[position] = lista[position - 1]
-                position -= 1
+    return A
 
-            lista[position] = currentValue
-
-lista = [86752, 14, 1234, 1]
-insertSort(lista)
-
-print lista
+print(insert_sort([78,89,123,2,5,9,1]))
