@@ -85,5 +85,27 @@ test.insert_node(17)
 test.insert_node(25)
 test.insert_node(19)
 
-test.pre_order()
-test.search(1123)
+# test.pre_order()
+# test.search(1123)
+
+arr = []
+
+q = [test]
+count = 0
+
+while q:
+    temp = []
+
+    while q:
+        node = q.pop()
+
+        if node.left_child:
+            temp.append(node.left_child)
+
+        if node.right_child:
+            temp.append(node.right_child)
+
+    count += 1
+    q = list(temp)
+
+print(count, q)

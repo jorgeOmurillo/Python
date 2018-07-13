@@ -1,52 +1,53 @@
-def binary_tree(r):
-    return [r, [], []]
+class ListOfList:
+    def __init__(self, r):
+        self.r = [r, [], []]
 
-def insert_left(root, newBranch):
-    t = root.pop(1)
+    def print_list(self):
+        return self.r
 
-    if len(t) > 1:
-        root.insert(1, [newBranch, t, []])
-    else:
-        root.insert(1, [newBranch, [], []])
+    def insertLeft(self, newBranch):
+        t = self.r.pop(1)
 
-    return root
+        if len(t) > 1:
+            self.r.insert(1, [newBranch, t, []])
+        else:
+            self.r.insert(1, [newBranch, [], []])
 
-def insert_right(root, newBranch):
-    t = root.pop(2)
+    def insertRight(self, newBranch):
+        t = self.r.pop(2)
 
-    if len(t) > 1:
-        root.insert(2, [newBranch, [], t])
-    else:
-        root.insert(2, [newBranch, [], []])
+        if len(t) > 1:
+            self.r.insert(2, [newBranch, t, []])
+        else:
+            self.r.insert(2, [newBranch, t, []])
 
-    return root
+    def getRootVal(self):
+        return self.r[0]
 
-def get_root(root):
-    return root[0]
+    def setRootVal(self, x):
+        self.r[0] = x
 
-def set_root(root, newVal):
-    root[0] = newVal
+    def getLeftChild(self):
+        return self.r[1]
 
-def get_left(root):
-    return root[1]
+    def getRightChild(self):
+        return self.r[2]
 
-def get_right(root):
-    return root[2]
+test = ListOfList(3)
 
-# r = binary_tree(1)
-# insert_left(r, 12)
-# insert_left(r, 122)
-# print(r)
-# insert_right(r, 14)
-# insert_right(r, 123)
+test.insertLeft(4)
+test.insertRight(5)
+test.insertRight(6)
+test.insertRight(7)
 
-# l = get_left(r)
-# print(l)
+l = test.getLeftChild()
 
-# set_root(l, 9)
-# print(r)
+print(l)
 
-# insert_left(l, 11)
-# print(r)
+test.setRootVal(9)
+print(test.print_list())
 
-# print(get_right(get_right(r)))
+test.insertLeft(11)
+print(test.print_list())
+
+print(test.getRightChild())

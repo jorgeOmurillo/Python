@@ -1,15 +1,10 @@
-def solution(s):
+def solution(n):
+    arr = [0]*(n+1)
+    arr[0], arr[1] = 0, 1
 
-    res = {}
+    for x in range(2, n+1):
+        arr[x] = arr[x-1] + arr[x-2]
 
-    for x in s:
-        if x in res:
-            res.pop(x)
-        else:
-            res[x] = 1
+    return arr
 
-    return res
-
-print(solution('abcabcbb'))
-print(solution('bbbbb'))
-print(solution('pwwkew'))
+print(solution(10))

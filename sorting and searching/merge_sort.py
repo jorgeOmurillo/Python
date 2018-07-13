@@ -1,19 +1,19 @@
 def merge_sort(A):
-    mid = (0 + len(A)) // 2
-
     if len(A) > 1:
+
         left = []
         right = []
+        mid = len(A) // 2
 
         for x in range(mid):
             left.append(A[x])
 
-        for y in range(mid, len(A)):
-            right.append(A[y])
+        for x in range(mid, len(A)):
+            right.append(A[x])
 
         merge_sort(left)
         merge_sort(right)
-
+        
         i = j = k = 0
 
         while i < len(left) and j < len(right):
@@ -23,7 +23,6 @@ def merge_sort(A):
             else:
                 A[k] = right[j]
                 j += 1
-
             k += 1
 
         while i < len(left):
@@ -38,4 +37,4 @@ def merge_sort(A):
 
     return A
 
-print(merge_sort([67,89,2,83,178,31,13,9,1,23]))
+print(merge_sort([66,7,1,2,56]))
